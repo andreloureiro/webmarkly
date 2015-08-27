@@ -6,17 +6,29 @@
   "keywords": [],
   "scripts": {
     "start": "npm install",
-    "app": "./node_modules/gulp/bin/gulp.js"
+    "app": "./node_modules/gulp/bin/gulp.js",
+    "test": "./node_modules/karma/bin/karma start karma.conf.js",
+    "test:debug": "./node_modules/karma/bin/karma start karma.conf.js --log-level debug"
   },
   "author": "Andre Loureiro",
   "license": "MIT",
   "devDependencies": {
+    "angular-mocks": "^1.4.4",
     "babelify": "^6.1.3",
     "browserify": "^11.0.0",
     "gulp": "^3.9.0",
     "gulp-clean": "^0.3.1",
     "gulp-connect": "^2.2.0",
     "gulp-uglify": "^1.2.0",
+    "istanbul": "^0.3.18",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-browserify": "^4.3.0",
+    "karma-coverage": "^0.5.0",
+    "karma-coverage-es6": "^0.2.7",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "phantomjs": "^1.9.18",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
