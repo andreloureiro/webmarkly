@@ -1,5 +1,10 @@
 import angular from 'angular';
 
+const STORAGE_LOCALSTORAGE = window.localStorage || null;
+const STORAGE_EXTENSION = chrome.storage.sync || null;
+
+const appStorage = STORAGE_LOCALSTORAGE;
+
 class WebmarklyService {
   constructor() {
     this.list = [];
