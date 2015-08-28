@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Webmarkly",
+  "version": "1.0.0",
+
+  "description": "A bookmark for web books",
+
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "index.html"
+  },
+
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
