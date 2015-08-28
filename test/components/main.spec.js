@@ -1,13 +1,9 @@
 import angular from 'angular';
 import mocks from 'angular-mocks';
+import uiRouter from 'angular-ui-router';
 import { MainComponent, MainController, MainModule } from '../../src/app/components/main';
 
 describe('Main View', () => {
-  let $rootScope;
-
-  beforeEach(inject((_$rootScope_) => {
-    $rootScope = _$rootScope_;
-  }));
 
   describe('Module', () => {
 
