@@ -13,8 +13,13 @@ class WebmarklyService {
     return this.list.filter(item => item.domain == domain);
   }
 
-  add(item) {
-    this.list.push(item);
+  add(text) {
+    this.list.unshift({
+      id: Date.now().toString(36),
+      label: text,
+      position: window.scrollY,
+      domain: window.location.href
+    });
   }
 
   remove(id) {
