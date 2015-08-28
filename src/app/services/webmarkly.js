@@ -1,17 +1,26 @@
 import angular from 'angular';
-
-const STORAGE_LOCALSTORAGE = window.localStorage || null;
-const STORAGE_EXTENSION = chrome.storage.sync || null;
-
-const appStorage = STORAGE_LOCALSTORAGE;
+import * as store from 'lockr';
 
 class WebmarklyService {
   constructor() {
-    this.list = [];
+    this.__domain = window.location.href;
+    this.__initialize();
+  }
+
+  __initialize() {
+    if (!!store.get('items_' + this.__domain)) {
+      this.__updateList();
+    } else {
+      store.set('items_' + this.__domain, []);
+    }
+  }
+
+  __updateList() {
+    this.list = store.get('items_' + this.__domain);
   }
 
   getAll() {
-    return this.list;
+    this.__updateList();
   }
 
   getAllByDomain(domain) {
@@ -19,16 +28,22 @@ class WebmarklyService {
   }
 
   add(text) {
-    this.list.unshift({
+    let itemsArr = store.get('items_' + this.__domain);
+    itemsArr.unshift({
       id: Date.now().toString(36),
       label: text,
       position: window.scrollY,
       domain: window.location.href
     });
+    store.set('items_' + this.__domain, itemsArr);
+    this.__updateList();
   }
 
   remove(id) {
-    this.list = this.list.filter(item => item.id != id);
+    let itemsArr = store.get('items_' + this.__domain);
+    itemsArr = itemsArr.filter(item => item.id != id);
+    store.set('items_' + this.__domain, itemsArr);
+    this.__updateList();
   }
 
 }

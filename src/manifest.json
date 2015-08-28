@@ -10,6 +10,16 @@
     "default_popup": "index.html"
   },
 
+  "background": {
+    "persistent": false,
+    "scripts": ["js/bundle.js"]
+  },
+
+  "content_scripts": [{
+    "matches": ["*://*/*"],
+    "js": ["content.js"]
+  }],
+
   "permissions": [
     "activeTab",
     "storage"

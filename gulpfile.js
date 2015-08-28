@@ -45,6 +45,11 @@ gulp.task('manifest', function() {
   .pipe(gulp.dest('dist'));
 });
 
+gulp.task('contentJS', function() {
+  gulp.src(['src/content.js'])
+  .pipe(gulp.dest('dist'));
+})
+
 gulp.task('clean', function() {
   gulp.src('dist')
     .pipe(clean());
@@ -55,4 +60,4 @@ gulp.task('watch', function() {
   gulp.watch(['src/**/*.js'], ['js']);
 });
 
-gulp.task('default', ['js', 'html', 'images', 'manifest', 'connect', 'watch']);
+gulp.task('default', ['js', 'html', 'images', 'manifest', 'contentJS', 'connect', 'watch']);
