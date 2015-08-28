@@ -1,5 +1,6 @@
 import angular from 'angular';
-import {Components} from './components';
+import { Components } from './components';
+import { Services } from './services';
 
 const AppComponent = () => {
   return {
@@ -18,6 +19,7 @@ class AppController {
 }
 
 const AppModule = angular.module('Webmarkly', [
-  Components.name
+  Components.name,
+  Services.name
 ])
   .directive('webmarklyApp', AppComponent);
